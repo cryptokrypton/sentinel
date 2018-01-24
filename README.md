@@ -1,12 +1,12 @@
-# Paccoin Sentinel
+# $PAC Sentinel
 
-An all-powerful toolset for Paccoin.
+An all-powerful toolset for $PAC.
 
 [![Build Status](https://travis-ci.org/paccoinpay/sentinel.svg?branch=master)](https://travis-ci.org/paccoinpay/sentinel)
 
-Sentinel is an autonomous agent for persisting, processing and automating Paccoin V12.1 governance objects and tasks, and for expanded functions in the upcoming Paccoin V13 release (Evolution).
+Sentinel is an autonomous agent for persisting, processing and automating $PAC governance objects and tasks.
 
-Sentinel is implemented as a Python application that binds to a local version 12.1 paccoind instance on each Paccoin V12.1 Masternode.
+Sentinel is implemented as a Python application that binds to a local version xx paccoind instance on each $PAC Vxy Masternode.
 
 This guide covers installing Sentinel onto an existing 12.1 Masternode in Ubuntu 14.04 / 16.04.
 
@@ -67,11 +67,11 @@ To view debug output, set the `SENTINEL_DEBUG` environment variable to anything 
 
 ## Contributing
 
-Please follow the [PaccoinCore guidelines for contributing](https://github.com/paccoinpay/paccoin/blob/v0.12.1.x/CONTRIBUTING.md).
+Please follow the XXXX
 
 Specifically:
 
-* [Contributor Workflow](https://github.com/paccoinpay/paccoin/blob/v0.12.1.x/CONTRIBUTING.md#contributor-workflow)
+* XXXXX
 
     To contribute a patch, the workflow is as follows:
 
