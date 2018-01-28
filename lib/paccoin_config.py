@@ -34,7 +34,7 @@ class PaccoinConfig():
         creds = {key: value for (key, value) in match}
 
         # standard Paccoin defaults...
-        default_port = 9998 if (network == 'mainnet') else 19998
+        default_port = 7111 if (network == 'mainnet') else 17111
 
         # use default port for network if not specified in paccoin.conf
         if not ('port' in creds):
