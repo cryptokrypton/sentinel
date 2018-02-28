@@ -10,6 +10,7 @@ import config
 from models import GovernanceObject, Proposal, Superblock, Vote
 import pprint
 
+
 # clear DB tables before each execution
 def setup():
     # clear tables first...
