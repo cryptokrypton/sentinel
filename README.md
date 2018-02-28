@@ -2,7 +2,7 @@
 
 An all-powerful toolset for $PAC.
 
-[![Build Status](https://travis-ci.org/paccoinpay/sentinel.svg?branch=master)](https://travis-ci.org/paccoinpay/sentinel)
+[![Build Status](https://travis-ci.org/PACCommunity/sentinel.svg?branch=master)](https://travis-ci.org/PACCommunity/sentinel)
 
 Sentinel is an autonomous agent for persisting, processing and automating $PAC governance objects and tasks.
 
@@ -31,7 +31,7 @@ Make sure the local Paccoin daemon running is at least version 12.1 (120100)
 
 Clone the Sentinel repo and install Python dependencies.
 
-    $ git clone https://github.com/paccoinpay/sentinel.git && cd sentinel
+    $ git clone https://github.com/PACCommunity/sentinel.git && cd sentinel
     $ virtualenv ./venv
     $ ./venv/bin/pip install -r requirements.txt
 

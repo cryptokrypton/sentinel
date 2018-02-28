@@ -16,12 +16,12 @@ def test_paccoind():
     config_text = PaccoinConfig.slurp_config_file(config.paccoin_conf)
     network = 'mainnet'
     is_testnet = False
-    genesis_hash = u'00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'
+    genesis_hash = u'00000354655ff039a51273fe61d3b493bd2897fe6c16f732dbc4ae19f04b789e'
     for line in config_text.split("\n"):
         if line.startswith('testnet=1'):
             network = 'testnet'
             is_testnet = True
-            genesis_hash = u'00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c'
+            genesis_hash = u'00000da63bd9478b655ef6bf1bf76cd9af05202ab68643f9091e049b2b5280ed'
 
     creds = PaccoinConfig.get_rpc_creds(config_text, network)
     paccoind = PaccoinDaemon(**creds)
@@ -29,7 +29,7 @@ def test_paccoind():
 
     assert hasattr(paccoind, 'rpc_connection')
 
-    # Paccoin testnet block 0 hash == 00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c
+    # Paccoin testnet block 0 hash == 00000da63bd9478b655ef6bf1bf76cd9af05202ab68643f9091e049b2b5280ed
     # test commands without arguments
     info = paccoind.rpc_command('getinfo')
     info_keys = [
