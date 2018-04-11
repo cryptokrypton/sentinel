@@ -1,26 +1,54 @@
 """
     Set up defaults and read sentinel.conf
 """
+import argparse
 import sys
 import os
 from paccoin_config import PaccoinConfig
+from os.path import expanduser
 
 default_sentinel_config = os.path.normpath(
     os.path.join(os.path.dirname(__file__), '../sentinel.conf')
 )
+
+if not os.path.isfile(default_sentinel_config):
+    base = os.path.abspath(os.path.dirname(sys.argv[0]))
+    default_sentinel_config = os.path.join(base, 'sentinel.conf')
+
 sentinel_config_file = os.environ.get('SENTINEL_CONFIG', default_sentinel_config)
 sentinel_cfg = PaccoinConfig.tokenize(sentinel_config_file)
 sentinel_version = "1.2.0"
 min_paccoind_proto_version_with_sentinel_ping = 70207
 
+def get_argarse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config', type=str, required=False)
+    parser.add_argument('--rpc-port', type=int, required=False)
+    parser.add_argument('--repair', action='store_true', default=False, required=False)
+    parser.add_argument('--sentinel', action='store_true', default=False, required=False)
+    return parser
+
+def get_args():
+    parser = get_argarse()
+
+    try:
+        args = parser.parse_args()
+    except:
+        # We are inside  tests
+        parser.add_argument('folder')
+        args = parser.parse_args()
+
+    return args
 
 def get_paccoin_conf():
-    home = os.environ.get('HOME')
+    home = expanduser("~")
 
     paccoin_conf = os.path.join(home, ".paccoincore/paccoin.conf")
     if sys.platform == 'darwin':
         paccoin_conf = os.path.join(home, "Library/Application Support/PaccoinCore/paccoin.conf")
-
+    elif ((sys.platform == 'win32') or (sys.platform == 'win64')):
+        paccoin_conf = os.path.join(home, "AppData/Roaming/PaccoinCore/paccoin.conf")
+    
     paccoin_conf = sentinel_cfg.get('paccoin_conf', paccoin_conf)
 
     return paccoin_conf

@@ -83,6 +83,11 @@ Specifically:
 
     Commit messages should be verbose by default, consisting of a short subject line (50 chars max), a blank line and detailed explanatory text as separate paragraph(s); unless the title alone is self-explanatory (like "Corrected typo in main.cpp") then a single title line is sufficient. Commit messages should be helpful to people reading your code in the future, so explain the reasoning for your decisions. Further explanation [here](http://chris.beams.io/posts/git-commit/).
 
+## Building for Windows
+
+Install pyinstaller `pip install pyinstaller`
+Generate output EXE/ELF: `pyinstaller --onefile --paths=lib/ main.py`
+
 ### License
 
 Released under the MIT license, under the same terms as PaccoinCore itself. See [LICENSE](LICENSE) for more info.

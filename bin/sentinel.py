@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 import sys
 import os
@@ -17,7 +18,7 @@ import atexit
 import random
 from scheduler import Scheduler
 import argparse
-
+from termcolor import colored
 
 # sync paccoind gobject list with our local relational DB backend
 def perform_paccoind_object_sync(paccoind):
@@ -245,7 +246,7 @@ def process_args():
     return args
 
 
-if __name__ == '__main__':
+def entrypoint():
     atexit.register(cleanup)
     signal.signal(signal.SIGINT, signal_handler)
 
@@ -265,3 +266,8 @@ if __name__ == '__main__':
     main()
 
     Transient.delete(mutex_key)
+	
+if __name__ == '__main__':
+    # ensure another instance of Sentinel is not currently running
+    mutex_key = 'SENTINEL_RUNNING'
+    entrypoint()
